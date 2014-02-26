@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.css" />
+	<h:outputStylesheet library="css" name="global.css" />
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" />
+	<script type="text/javascript">
+		var jq = jQuery.noConflict();
+	</script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" />
+	<title>EE SandBox</title>
+</h:head>
+<h:body>
+	<div class="container">
+		<div class="row">
+			<div class="jumbotron clearfix">
+				<div class="pull-left">
+					<h2 onclick="window.location='#{facesContext.externalContext.requestContextPath}/';">EE SandBox</h2>
+					<p>
+						<h:link outcome="vs.xhtml" value="View Scoped" />
+					</p>
+				</div>
+				<ui:fragment rendered="#{identity.loggedIn}">
+					<div class="pull-right">
+						<div class="btn-group pull-right">
+							<button type="button" class="btn btn-primary" data-toggle="dropdown">
+								<span class="glyphicon glyphicon-user" /> <span>#{userSession.user.name} </span><span class="caret" />
+							</button>
+							<ul class="dropdown-menu">
+								<li><h:link value="Create Account" outcome="/s/account/create.xhtml" /></li>
+								<li class="divider"></li>
+								<li><h:outputLink value="#{facesContext.externalContext.requestContextPath}/s/logout.xhtml">Logout</h:outputLink></li>
+							</ul>
+						</div>
+						<h:panelGroup layout="block" rendered="#{userSession.user.account ne null}" styleClass="user-session-account">
+							<h:link value="#{userSession.user.account.name}" outcome="/s/account/view.xhtml">
+								<f:param name="uid" value="#{userSession.user.account.uuid}" />
+							</h:link>
+						</h:panelGroup>
+					</div>
+				</ui:fragment>
+			</div>
+			<h:messages styleClass="list-unstyled" globalOnly="true" errorClass="alert alert-thin alert-danger alert-dismissable" infoClass="alert alert-thin alert-info alert-dismissable"
+				warnClass="alert alert-thin alert-warning alert-dismissable" fatalClass="alert alert-thin alert-danger alert-dismissable" />
+			<ui:insert name="content" />
+		</div>
+	</div>
+</h:body>
+</html>

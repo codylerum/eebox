@@ -1,0 +1,112 @@
+.message-error {
+	font-weight: bold;
+}
+
+.buttons {
+	clear: both;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.buttons-inline .btn {
+	margin-right: 5px;
+}
+
+.buttons .btn {
+	margin-right: 5px;
+}
+
+.off-screen-button {
+	position: absolute;
+	left: -9999px;
+	width: 1px;
+	height: 1px;
+}
+
+th.text-left {
+	text-align: left;
+}
+
+th.text-center {
+	text-align: center;
+}
+
+th.text-right {
+	text-align: right;
+}
+
+td.text-left {
+	text-align: left;
+}
+
+td.text-center {
+	text-align: center;
+}
+
+td> .label:not(:first-child ) {
+	margin-left: 5px;
+}
+
+ul.user-emails .label {
+	margin-left: 5px;
+}
+
+ul.user-accounts .label {
+	margin-left: 5px;
+}
+
+ul.account-phonenumbers .label {
+	margin-left: 5px;
+}
+
+.buy-number-results .row {
+	padding: 15px;
+	margin-bottom: 5px;
+	background-color: white;
+	margin-bottom: 5px;
+	color: #666;
+	border-radius: 4px;
+}
+
+.buy-number-results .glyphicon {
+	font-size: 1.2em;
+}
+
+.buy-number-results .number {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.buy-number-results .region {
+	font-size: .8em;
+}
+
+.buy-number-results .capabilities {
+	text-align: center;
+}
+
+.success .glyphicon {
+	color: #5cb85c;
+}
+
+#audioContent {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.user-session-account {
+	float: left;
+	clear: both;
+	font-size: .5em;
+	color: #428bca;
+	font-weight: bold;
+}
+
+table#todData th {
+	font-size: .9em;
+	text-align:center;
+}
+
+table#todLegend th {
+	text-align:center;
+}
