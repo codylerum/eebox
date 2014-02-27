@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
 
 	<session-config>
-		<session-timeout>5</session-timeout>
+		<session-timeout>2</session-timeout>
 	</session-config>
 
 	<servlet>
@@ -68,7 +68,7 @@
 
 	<context-param>
 		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
-		<param-value>client</param-value>
+		<param-value>server</param-value>
 	</context-param>
 
 	<env-entry>

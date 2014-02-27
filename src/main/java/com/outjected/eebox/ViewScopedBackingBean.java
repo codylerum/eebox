@@ -1,6 +1,9 @@
 package com.outjected.eebox;
 
+import java.util.UUID;
+
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
@@ -12,12 +15,20 @@ public class ViewScopedBackingBean {
 
   private Logger log;
 
+  private UUID uuid;
+
   private String foo = "Default";
 
   @PostConstruct
   private void postCostruct() {
     log = Logger.getLogger(ViewScopedBackingBean.class);
-    log.infof("Created new View Scoped Backing Bean");
+    uuid = UUID.randomUUID();
+    log.infof("Created new View Scoped Backing Bean: %s", uuid.toString());
+  }
+
+  @PreDestroy
+  private void preDestroy() {
+    log.infof("Destroying View Scoped Backing Bean: %s", uuid.toString());
   }
 
   public void submitValue() {
@@ -26,6 +37,10 @@ public class ViewScopedBackingBean {
 
   public void immediate() {
     log.infof("Didn't Submit");
+  }
+
+  public String submitAndNavigate() {
+    return "vs.xhtml&faces-redirect=true";
   }
 
   public String getFoo() {

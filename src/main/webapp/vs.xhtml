@@ -8,6 +8,7 @@
 			<h:inputText value="#{viewScopedBackingBean.foo}" />
 			<div class="buttons">
 				<h:commandButton value="Submit" action="#{viewScopedBackingBean.submitValue()}" styleClass="btn btn-default" />
+				<h:commandButton value="Submit and Navigate" action="#{viewScopedBackingBean.submitAndNavigate()}" styleClass="btn btn-default" />
 				<h:commandButton value="Immediate" action="#{viewScopedBackingBean.immediate()}" styleClass="btn btn-default" immediate="true" />
 			</div>
 		</h:form>
