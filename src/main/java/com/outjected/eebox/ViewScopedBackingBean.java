@@ -4,14 +4,18 @@ import java.util.UUID;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 import org.jboss.logging.Logger;
 
-@ViewScoped
+import com.outjected.eebox.scopes.EnhancedViewScoped;
+import java.io.Serializable;
+
+@EnhancedViewScoped
 @Named
-public class ViewScopedBackingBean {
+public class ViewScopedBackingBean implements Serializable {
+
+  private static final long serialVersionUID = 1L;
 
   private Logger log;
 
