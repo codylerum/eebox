@@ -1,13 +1,12 @@
 package com.outjected.eebox;
 
 import java.util.UUID;
+import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-
-import org.jboss.logging.Logger;
 
 @ViewScoped
 @Named
@@ -21,22 +20,22 @@ public class ViewScopedBackingBean {
 
   @PostConstruct
   private void postCostruct() {
-    log = Logger.getLogger(ViewScopedBackingBean.class);
+    log = Logger.getLogger(ViewScopedBackingBean.class.getName());
     uuid = UUID.randomUUID();
-    log.infof("Created new View Scoped Backing Bean: %s", uuid.toString());
+    log.info(String.format("Created new View Scoped Backing Bean: %s", uuid.toString()));
   }
 
   @PreDestroy
   private void preDestroy() {
-    log.infof("Destroying View Scoped Backing Bean: %s", uuid.toString());
+    log.info(String.format("Destroying View Scoped Backing Bean: %s", uuid.toString()));
   }
 
   public void submitValue() {
-    log.infof("Set Value: %s", foo);
+    log.info(String.format("Set Value: %s", foo));
   }
 
   public void immediate() {
-    log.infof("Didn't Submit");
+    log.info(String.format("Didn't Submit"));
   }
 
   public String submitAndNavigate() {
