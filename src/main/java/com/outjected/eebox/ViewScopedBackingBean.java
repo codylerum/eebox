@@ -1,5 +1,6 @@
 package com.outjected.eebox;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 import javax.annotation.PostConstruct;
@@ -11,43 +12,44 @@ import org.jboss.logging.Logger;
 
 @ViewScoped
 @Named
-public class ViewScopedBackingBean {
+public class ViewScopedBackingBean implements Serializable {
 
-  private Logger log;
+	private static final long serialVersionUID = 1L;
 
-  private UUID uuid;
+	private static Logger log = Logger.getLogger(ViewScopedBackingBean.class);
 
-  private String foo = "Default";
+	private UUID uuid;
 
-  @PostConstruct
-  private void postCostruct() {
-    log = Logger.getLogger(ViewScopedBackingBean.class);
-    uuid = UUID.randomUUID();
-    log.infof("Created new View Scoped Backing Bean: %s", uuid.toString());
-  }
+	private String foo = "Default";
 
-  @PreDestroy
-  private void preDestroy() {
-    log.infof("Destroying View Scoped Backing Bean: %s", uuid.toString());
-  }
+	@PostConstruct
+	private void postCostruct() {
+		uuid = UUID.randomUUID();
+		log.infof("Created new View Scoped Backing Bean: %s", uuid.toString());
+	}
 
-  public void submitValue() {
-    log.infof("Set Value: %s", foo);
-  }
+	@PreDestroy
+	private void preDestroy() {
+		log.infof("Destroying View Scoped Backing Bean: %s", uuid.toString());
+	}
 
-  public void immediate() {
-    log.infof("Didn't Submit");
-  }
+	public void submitValue() {
+		log.infof("Set Value: %s", foo);
+	}
 
-  public String submitAndNavigate() {
-    return "vs.xhtml&faces-redirect=true";
-  }
+	public void immediate() {
+		log.infof("Didn't Submit");
+	}
 
-  public String getFoo() {
-    return foo;
-  }
+	public String submitAndNavigate() {
+		return "vs.xhtml&faces-redirect=true";
+	}
 
-  public void setFoo(String foo) {
-    this.foo = foo;
-  }
+	public String getFoo() {
+		return foo;
+	}
+
+	public void setFoo(String foo) {
+		this.foo = foo;
+	}
 }

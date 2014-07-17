@@ -1,0 +1,31 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h4>Request Scoped Entity Manager Backing Bean Broken</h4>
+		<div class="well">
+			<p>Backing Bean Value: #{requestScopedEntityManagerBackingBean.message.message}</p>
+			<p>Backing Bean Version: #{requestScopedEntityManagerBackingBean.message.version}</p>
+		</div>
+		<h:form>
+			<h:inputText value="#{requestScopedEntityManagerBackingBean.message.message}" />
+			<div class="buttons">
+				<h:commandButton value="Submit" action="#{requestScopedEntityManagerBackingBean.submitValue()}" styleClass="btn btn-default" />
+			</div>
+		</h:form>
+
+		<h:dataTable value="#{allMessages}" var="_m" styleClass="table table-condensed table-hover table-bordered">
+			<h:column>
+				<f:facet name="header">ID</f:facet>
+				<h:outputText value="#{_m.id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Version</f:facet>
+				<h:outputText value="#{_m.version}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Message</f:facet>
+				<h:outputText value="#{_m.message}" />
+			</h:column>
+		</h:dataTable>
+	</ui:define>
+</ui:composition>
