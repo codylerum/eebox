@@ -21,7 +21,7 @@ public class AllMessagesProducer {
 	@Named
 	public List<Message> allMessages() {
 		log.infof("Producing All Messages List");
-		return em.createQuery("select m from Message m order by id desc",
+		return em.createQuery("select m from Message m order by m.id desc",
 				Message.class).getResultList();
 	}
 }
