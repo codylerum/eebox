@@ -1,0 +1,29 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:r="http://richfaces.org" template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h:outputScript library="js" name="ws.js" />
+		<div id="pageInterest" data-interest="#{webSocketPageBean.interest}" />
+		<div class="well">
+			<p>
+				Connected Status: <span id="wsconnectstatus" style="font-weight: bold;">Pending</span>
+			</p>
+			<ul id="processingMessages"></ul>
+		</div>
+		<h:form>
+			<div class="buttons">
+				<h:commandButton value="Start Processing" action="#{webSocketPageBean.startProcessing()}" styleClass="btn btn-default" />
+				<h:commandButton value="Start Processing AJAX" action="#{webSocketPageBean.startProcessing()}" styleClass="btn btn-default">
+					<f:ajax render="@all" />
+				</h:commandButton>
+			</div>
+		</h:form>
+
+		<script type="text/javascript">
+			var contextRoot = '#{_contextRoot}';
+			setTimeout(function() {
+				startWebSocket();
+			}, 3000);
+		</script>
+
+	</ui:define>
+</ui:composition>

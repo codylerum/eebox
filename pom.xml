@@ -17,14 +17,13 @@
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<maven.compiler.source>1.7</maven.compiler.source>
 
-		<version.wildfly>8.0.0.Final</version.wildfly>
+		<version.wildfly>8.1.0.Final</version.wildfly>
 		<version.javaee.api>7.0</version.javaee.api>
 		<version.jboss.spec.javaee.7.0>1.0.0.Final</version.jboss.spec.javaee.7.0>
 		<version.deltaspike>0.5</version.deltaspike>
-		<version.com.google.guava>16.0.1</version.com.google.guava>
+		<version.com.google.guava>17.0</version.com.google.guava>
 		<version.com.twilio.sdk>3.4.2</version.com.twilio.sdk>
 		<version.org.hibernate.jpamodelgen>4.3.1.Final</version.org.hibernate.jpamodelgen>
-		<version.richfaces>5.0.0.Alpha3</version.richfaces>
 		<version.amazon.aws>1.6.11</version.amazon.aws>
 		<version.jbcrypt>0.3m</version.jbcrypt>
 		<version.uuid.generator>3.1.3</version.uuid.generator>
@@ -74,11 +73,6 @@
 			<version>${version.org.hibernate.jpamodelgen}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.richfaces</groupId>
-			<artifactId>richfaces</artifactId>
-			<version>${version.richfaces}</version>
-		</dependency>
 
 		<dependency>
 			<groupId>com.sun.faces</groupId>
@@ -86,6 +80,12 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${version.com.google.guava}</version><!--$NO-MVN-MAN-VER$ -->
+			<scope>compile</scope>
+		</dependency>
 
 	</dependencies>
 
