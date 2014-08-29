@@ -1,0 +1,43 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j" template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h:form>
+			<div class="well">
+				<h4>Steps</h4>
+				<ul>
+					<li>Click Now</li>
+					<li>See how both components are set</li>
+					<li>Refresh Page</li>
+					<li>Click Submit</li>
+					<li>See error messages because required was true</li>
+					<li>Click Now</li>
+					<li>See how the value is shown on the pop-up true but not on pop-up false</li>
+					<li>Submit</li>
+					<li>Verify no error messages which means that the value was set on both and see the value set on the pop-up false</li>
+				</ul>
+			</div>
+			<div class="well">
+				<h4>Pop-up False. Content won't be set</h4>
+				<rich:calendar id="cal1" value="#{viewScopedBackingBean.date}" required="true" datePattern="MM/dd/yyyy hh:mm a" enableManualInput="true" popup="false" />
+				<div class="buttons">
+					<h:message for="cal1" styleClass="alert alert-danger" style="clear:both" />
+				</div>
+			</div>
+			<div class="well">
+				<h4>Pop-up True. Content will be set</h4>
+				<rich:calendar id="cal2" value="#{viewScopedBackingBean.date}" required="true" datePattern="MM/dd/yyyy hh:mm a" enableManualInput="true" popup="true" />
+				<div class="buttons">
+					<h:message for="cal2" styleClass="alert alert-danger" style="clear:both" />
+				</div>
+			</div>
+			<div class="buttons">
+				<h:commandButton value="Submit" action="#{viewScopedBackingBean.submitValue()}" styleClass="btn btn-default" />
+				<a:commandLink value="Now" render="@form" style="margin-left:5px" styleClass="pull-left btn btn-default" execute="@this">
+					<f:setPropertyActionListener target="#{viewScopedBackingBean.date}" value="#{currentDate}" />
+				</a:commandLink>
+			</div>
+
+		</h:form>
+	</ui:define>
+</ui:composition>

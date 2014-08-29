@@ -17,20 +17,14 @@
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<maven.compiler.source>1.7</maven.compiler.source>
 
-		<version.wildfly>8.0.0.Final</version.wildfly>
+		<version.wildfly>8.1.0.Final</version.wildfly>
 		<version.javaee.api>7.0</version.javaee.api>
 		<version.jboss.spec.javaee.7.0>1.0.0.Final</version.jboss.spec.javaee.7.0>
 		<version.deltaspike>0.5</version.deltaspike>
 		<version.com.google.guava>16.0.1</version.com.google.guava>
 		<version.com.twilio.sdk>3.4.2</version.com.twilio.sdk>
 		<version.org.hibernate.jpamodelgen>4.3.1.Final</version.org.hibernate.jpamodelgen>
-		<version.richfaces>5.0.0.Alpha3</version.richfaces>
-		<version.amazon.aws>1.6.11</version.amazon.aws>
-		<version.jbcrypt>0.3m</version.jbcrypt>
-		<version.uuid.generator>3.1.3</version.uuid.generator>
-		<version.simple.identity>0.1.1</version.simple.identity>
-		<version.apache.commons.lang>3.1</version.apache.commons.lang>
-		<version.arquillian>1.1.2.Final</version.arquillian>
+		<version.richfaces>4.5.0-SNAPSHOT</version.richfaces>	
 	</properties>
 
 	<dependencyManagement>
